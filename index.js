@@ -44,7 +44,10 @@ app.use(
     authRequired: false,
     auth0Logout: true,
     baseURL: APP_URL,
-  })
+    authorizationParams: {
+      response_type: "code id_token",
+      audience: "https://expenses-api",
+    })
 );
 
 app.get("/", async (req, res, next) => {
